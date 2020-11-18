@@ -11,9 +11,15 @@ module.exports = {
     module: {
         rules: [
             {
-                test: '/\.js$/',
+                test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+
+            {
+                test: /\.scss$/,
+                // Order of loaders is from right to left 
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     },
